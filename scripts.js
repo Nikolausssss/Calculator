@@ -122,11 +122,14 @@ let eventwrite = function(event) {
 let eventmov = function(event) {
     if ( event.target.tagName != "DIV" ) {
         num = "num2";
+        // if (event.target.classList[0] == "backspace") {
+            
+        // }
         if ( history[i].num2 != '' || history[i].checkunaroperator() ) {
             history[i].decision();
             i++;
             history[i] = new Operator();
-            history[i].num1 = inputbar.value;
+            history[i].num1 = inputbar.value || '';
         }
         if ( event.target.classList[0] != "equally" ) {
             history[i].move = event.target.classList[0];       
