@@ -1,0 +1,290 @@
+@keyframes placeholder-square-animation {
+    0% {
+        right: -250px;
+        transform: rotate(315deg);
+    }
+    100% {}
+}
+
+@keyframes placeholder-name-animation {
+    0% {
+        width: 1px;
+        background:#C9C9C9;
+    }
+    15% {
+        background:white;
+    }
+    30% {
+        background:#C9C9C9;
+    }
+    45% {
+        background:white;
+    }
+    60% {
+        width: 1px;
+        background:#C9C9C9;
+    }
+    100% {
+        background:#C9C9C9;
+        width: 100%;
+    }
+}
+
+@keyframes placeholder-animation {
+    0% {}
+    100% {
+        height: 0px;
+    }
+}
+
+@keyframes header-footer-not-onscreen {
+    0% {
+        height: 4%;
+    }
+    100% {
+        height: 0%;
+    }
+}
+
+@keyframes header-footer-onscreen {
+    0% {
+        height: 0%;
+    }
+    100% {
+        height: 4%;
+    }
+}
+
+@keyframes main-fullscreen {
+    0% {
+        height: 92%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes main-not-fullscreen {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height: 92%;
+    }
+}
+
+@media (max-height: 780px) {
+    header, footer {
+        animation: header-footer-not-onscreen 1s ease-in-out 0s 1 alternate forwards;
+    }
+    main{
+        animation: main-fullscreen 1s ease-in-out 0s 1 alternate forwards; 
+    }
+    .square1, .square2, .square3 {
+        display: none;
+    } 
+}
+
+@media (min-height: 781px) {
+    header, footer {
+        animation: header-footer-onscreen 1s ease-in-out 0s 1 alternate forwards; 
+    }
+    main {
+        animation: main-not-fullscreen 1s ease-in-out 0s 1 alternate forwards; 
+    }
+} 
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    text-align: center;
+    font-family: sans-serif;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.placeholder {
+    display: none;
+    overflow: hidden;
+    z-index: 2;
+    background: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: placeholder-animation 1s ease 2.7s 1 alternate forwards;
+}
+
+.name {
+    width: 100%;
+    position: absolute;
+    top: 35%;
+    justify-content: center;
+}
+
+.name-str {
+    font-size: calc(3vh + 11vw);
+    color: white;
+    width: 100%;
+    margin:0px;
+}
+
+.square0 {
+    justify-content: center;
+    flex-grow: 0;
+    margin: 0px;
+}
+
+.square0 div {
+    width: 1px;
+    justify-content: center;
+    background: black;
+    flex-grow: 0;
+    margin: 0px;
+    animation: placeholder-name-animation 2s ease 0s 1 alternate forwards;
+}
+
+.square1, .square2, .square3 {
+    position: absolute; 
+    animation: placeholder-square-animation 1s ease 1s 1 alternate backwards;
+
+}
+
+.square1 {
+    background: #F0F0F0;
+    right: -7px;
+    bottom: -7px;
+    height: 200px;
+    width: 200px;  
+    transform: rotate(45deg); 
+}
+
+.square2 {
+    background: red;
+    right: -20px;
+    bottom: 210px;
+    height: 100px;
+    width: 100px;
+    transform: rotate(25deg);
+}
+
+.square3 {
+    background: black;
+    right: -10px;
+    bottom: 150px;
+    height: 90px;
+    width: 90px;
+    transform: rotate(75deg);
+}
+
+header, footer {
+    overflow: hidden;
+}  
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 92%;
+    min-height: 428px;
+    background-color: #F0F0F0;
+}
+
+h1, h3 {
+    margin: 0px; 
+}
+
+h1 {
+    font-weight: lighter;
+}
+
+h3 {
+    font: status-bar;
+}
+
+p {
+    font-size: 6vh;
+}
+
+.sqr p {
+    font-size: 3vh;
+}
+
+button {
+    flex-grow: 1;
+    min-height: 90px;
+    min-width: 90px;
+    margin: 2px;
+    padding: 0px;
+    border: 1px #F0F0F0 solid;
+    background-color: white;
+    transition-property: bacground-image, background-color, color;
+    transition-duration: 0.6s;
+    transition-timing-function: ease;
+}
+
+.move button {
+    background-color: #c9c9c9;
+}
+
+button:hover {
+    background-color: rgb(165, 165, 165);
+    color: white;
+} 
+
+button:focus {
+    outline: none;
+}
+
+.pressed {
+    outline: solid 1px red;
+    color: red;
+}
+
+button:active {
+    background-image: linear-gradient(rgb(165, 165, 165) 15px, #F0F0F0);
+    color: red;
+}
+
+.move button:active {
+    background-image: linear-gradient(rgb(165, 165, 165) 15px, #F0F0F0);
+}
+
+input {
+    padding: 0px;
+    font-size: 72px;
+    text-align: end;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border-width: 0px;
+    border-top: 1px black solid;
+    background-color: white;
+}
+
+.inp-bar, div {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-grow: 1;
+} 
+
+.dial, .move {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.dial {
+    flex-grow: 3;  
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+}
+
+.move {
+    flex-grow: 2;
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+}
