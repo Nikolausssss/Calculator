@@ -208,8 +208,12 @@ p {
     font-size: 6vh;
 }
 
-.sqr p {
+.sqr p, .history p {
     font-size: 3vh;
+}
+
+.history p {
+    margin-top: 0px;
 }
 
 button {
@@ -264,12 +268,22 @@ input {
     background-color: white;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 .inp-bar, div {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     flex-grow: 1;
 } 
+.inp-bar {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+
+}
 
 .dial, .move {
     display: flex;
@@ -279,12 +293,27 @@ input {
 
 .dial {
     flex-grow: 3;  
-    border-bottom: 1px black solid;
-    border-top: 1px black solid;
 }
 
 .move {
     flex-grow: 2;
-    border-bottom: 1px black solid;
-    border-top: 1px black solid;
+    border-right: 1px black solid;
+
+}
+
+.history {
+    flex-grow: 2;
+    min-width: 120px;
+    max-width: 389px;
+    max-height: 808px;
+    overflow: auto;
+}
+
+.operation {
+    margin: 4px 10px;
+    border-bottom: 1px rgb(165, 165, 165) solid;
+}
+
+.operations-value {
+    margin: 0;
 }
