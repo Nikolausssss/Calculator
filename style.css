@@ -108,7 +108,6 @@ body {
 }
 
 .placeholder {
-    display: none;
     overflow: hidden;
     z-index: 2;
     background: white;
