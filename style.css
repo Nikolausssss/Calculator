@@ -94,7 +94,7 @@
     }
 } 
 
-@media (max-width: 1000px) {
+@media (orientation: portrait) {
     .history-for-landscape {
         display: none;
     }
@@ -103,7 +103,7 @@
     }
 }
 
-@media (min-width:1001px) {
+@media (orientation: landscape) {
     .history-for-landscape {
         display: block;
     }
