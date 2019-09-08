@@ -53,9 +53,7 @@ class Operator {
 }
 
 let addtohistory = function(operation) {
-    let div = document.createElement('div');
-    div.className = "operation";
-
+    let div;
     let movechar;
     switch (operation.move) {
         case "sum": movechar = "+"; break;
@@ -66,34 +64,39 @@ let addtohistory = function(operation) {
         case "sqrt": movechar = "&Sqrt;"; break;
     }
     if (operation.move == "sqr") {
-    div.innerHTML = `<p class="operations-value"> ${+operation.num1}${movechar} = ${operation.answer} </p>`;
+    div = `<div class="operation"> <p class="operations-value"> ${+operation.num1}${movechar} = ${operation.answer} </p> </div>`;
     } else if (operation.move == "sqrt") {
-    div.innerHTML = `<p class="operations-value"> ${movechar}${+operation.num1} = ${operation.answer} </p>`;
+    div = `<div class="operation"> <p class="operations-value"> ${movechar}${+operation.num1} = ${operation.answer} </p> </div>`;
     } else {
-        div.innerHTML = `<p class="operations-value"> ${+operation.num1} ${movechar} ${+operation.num2} = ${operation.answer} </p>`;
+        div = `<div class="operation"> <p class="operations-value"> ${+operation.num1} ${movechar} ${+operation.num2} = ${operation.answer} </p> </div>`;
     }
 
-    historybar[0].append(div);
-    historybar[1].append(div);
-
+    historybar[0].innerHTML += div;
+    historybar[1].innerHTML += div;
 }
 
 let history = [];
 let i = 0;
 history[i] = new Operator('');
 let num = "num1";
+let checkequally = false;
 
 let eventwrite = function(event) {
-    if ( event.target.tagName != "DIV" ) {
+    if ( event.target.tagName != "DIV" && event.target.tagName != "SECTION" ) {
+        if (checkequally) {
+            num = "num1";
+            history[i][num] = '';
+        }
         history[i][num] += event.target.textContent;
         inputbar.value = history[i][num];
     }
 }
 
 let eventmov = function(event) {
-    if ( event.target.tagName != "DIV" ) {
+    if ( event.target.tagName != "DIV" && event.target.tagName != "SECTION" ) {
         num = "num2";
         let movename = event.target.classList[0];
+        checkequally = false;
 
         if (movename == "backspace") {
             operands.backspace(0, 0);
@@ -108,9 +111,15 @@ let eventmov = function(event) {
             history[i] = new Operator(inputbar.value || '' || '');
         }
 
-        if ( movename != "equally" || movename != "backspace") {
+        if (movename == "equally") {
+            checkequally = true;
+        } else if (movename != "backspace") {
             history[i].move = movename;       
-        };
+        }
+
+        // if ( movename != "equally" && movename != "backspace") {
+        //     history[i].move = movename;       
+        // };
     }
 }
 
@@ -118,6 +127,6 @@ let eventmov = function(event) {
 let dialbar = document.querySelector( ".dial" );
 let movbar = document.querySelector( ".move" );
 let inputbar = document.querySelector( "input" );
-let historybar = document.querySelectorAll( ".history");
+let historybar = document.querySelectorAll( ".history-inner");
 dialbar.addEventListener( 'click', eventwrite );
 movbar.addEventListener( 'click', eventmov );
