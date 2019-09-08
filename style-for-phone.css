@@ -253,6 +253,7 @@ input::-webkit-inner-spin-button {
 
 .inp-bar {
     overflow: hidden;
+    margin-bottom: 2px;
 }
 
 .dial, .move {
@@ -272,8 +273,8 @@ input::-webkit-inner-spin-button {
 
 button {
     flex-grow: 1;
-    min-height: 90px;
-    min-width: 90px;
+    min-height: 80px;
+    min-width: 80px;
     margin: 2px;
     padding: 0px;
     border: none;
@@ -301,10 +302,10 @@ button:focus {
     color: red;
 }
 
-/* button:active {
-    background-image: linear-gradient(rgb(165, 165, 165) 15px, #F0F0F0);
-    color: red;
-} */
+button:active {
+    background-color: rgb(165, 165, 165);
+    color:white;
+}
 
 /* .move button:active {
     background-image: linear-gradient(rgb(165, 165, 165) 15px, #F0F0F0);

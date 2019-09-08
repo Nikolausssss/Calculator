@@ -253,6 +253,7 @@ input::-webkit-inner-spin-button {
 
 .inp-bar {
     overflow: hidden;
+    margin-bottom: 2px;
 }
 
 .dial, .move {
