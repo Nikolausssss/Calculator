@@ -325,7 +325,7 @@ button:active {
 
 .history-for-portrait {
     overflow: hidden;
-    height: 60px;
+    height: 70px;
     width: 100%;
     flex-direction: row;
 }
