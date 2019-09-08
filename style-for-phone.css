@@ -273,8 +273,8 @@ input::-webkit-inner-spin-button {
 
 button {
     flex-grow: 1;
-    min-height: 80px;
-    min-width: 80px;
+    min-height: 70px;
+    min-width: 70px;
     margin: 2px;
     padding: 0px;
     border: none;
