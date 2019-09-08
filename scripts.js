@@ -86,6 +86,7 @@ let eventwrite = function(event) {
         if (checkequally) {
             num = "num1";
             history[i][num] = '';
+            checkequally = false;
         }
         history[i][num] += event.target.textContent;
         inputbar.value = history[i][num];
