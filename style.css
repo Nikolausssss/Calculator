@@ -203,6 +203,31 @@ header, footer {
     overflow: hidden;
 }  
 
+.checkbox {
+    position: relative;
+    display: none;
+}
+
+.check-placeholder h3 {
+    margin: 0;
+    margin-left: 4px
+}
+
+.check-placeholder {
+    justify-content: flex-start;
+}
+
+.check-placeholder label{
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    background-color: #c9c9c9;
+}
+
+.check-placeholder input:checked + label {
+    background-color: red;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -213,7 +238,7 @@ main {
 }
 
 h1, h3 {
-    margin: 0px; 
+    margin: auto; 
 }
 
 h1 {
@@ -269,7 +294,6 @@ input::-webkit-inner-spin-button {
 .move {
     flex-grow: 2;
 }
-
 
 button {
     flex-grow: 1;

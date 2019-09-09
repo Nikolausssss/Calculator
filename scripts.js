@@ -124,10 +124,28 @@ let eventmov = function(event) {
     }
 }
 
+let eventchecked = function(event) {
+    if (checkbox.checked) {
+        localStorage.setItem('placeholder', '');
+    } else {
+        localStorage.setItem('placeholder', 'true');
+    }
+}
+
+let addchecked = function(elem) {
+    if (localStorage.getItem('placeholder')) {
+        elem.checked = false;
+    } else {
+        elem.checked = true;
+    }
+}
 
 let dialbar = document.querySelector( ".dial" );
 let movbar = document.querySelector( ".move" );
 let inputbar = document.querySelector( "input" );
 let historybar = document.querySelectorAll( ".history-inner");
+let checkbox = document.querySelector(".checkbox");
+addchecked(checkbox);
 dialbar.addEventListener( 'click', eventwrite );
 movbar.addEventListener( 'click', eventmov );
+checkbox.addEventListener( 'change', eventchecked );

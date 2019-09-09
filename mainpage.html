@@ -7,8 +7,9 @@
         <link media="handheld" rel="stylesheet" href="style-for-phone.css">
     </head>
     <body>
-       <div class="placeholder">
-            <div class="name" >
+ 
+        <div class="none">
+            <!-- <div class="name" >
                 <div class="square0">
                     <div>
                         <h1 class="name-str">Калькулятор</h1>
@@ -17,8 +18,30 @@
             </div>
             <div class="square1"></div>
             <div class="square2"></div>
-            <div class="square3"></div>
+            <div class="square3"></div> -->
         </div>
+        <script>
+                let placeholder = document.querySelector(".none");
+                if (localStorage.getItem('placeholder')) {
+                    placeholder.classList[0] = "placeholder";
+                    placeholder.innerHTML = `
+                    <div class="placeholder">
+                        <div class="name" >
+                            <div class="square0">
+                                <div>
+                                    <h1 class="name-str">Калькулятор</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="square1"></div>
+                        <div class="square2"></div>
+                        <div class="square3"></div>
+                    </div>    
+                    `;
+                } else {
+                    placeholder.style.display = none;
+                }    
+        </script>
         <header>
             <h1>Калькулятор</h1>
         </header>
@@ -80,7 +103,8 @@
             </section>
         </main>
         <footer>
-            <h3 class="endword">Powered by Nikolaus</h3>
+            <div class="endword"><h3>Powered by Nikolaus</h3></div> 
+            <div class="check-placeholder"><input class="checkbox" id="chb" type="checkbox" ><label for="chb"></label><h3>Отключить заставку</h3></div>
         </footer>
         <script src="scripts.js"></script>
     </body>
