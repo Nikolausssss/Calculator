@@ -7,24 +7,12 @@
         <link media="handheld" rel="stylesheet" href="style-for-phone.css">
     </head>
     <body>
- 
-        <div class="none">
-            <!-- <div class="name" >
-                <div class="square0">
-                    <div>
-                        <h1 class="name-str">Калькулятор</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="square1"></div>
-            <div class="square2"></div>
-            <div class="square3"></div> -->
-        </div>
+        <div class="none"></div>
         <script>
-                let placeholder = document.querySelector(".none");
-                if (localStorage.getItem('placeholder')) {
-                    placeholder.classList[0] = "placeholder";
-                    placeholder.innerHTML = `
+            let placeholder = document.querySelector(".none");
+            if (localStorage.getItem('placeholder')) {
+                placeholder.classList[0] = "placeholder";
+                placeholder.innerHTML = `
                     <div class="placeholder">
                         <div class="name" >
                             <div class="square0">
@@ -37,10 +25,10 @@
                         <div class="square2"></div>
                         <div class="square3"></div>
                     </div>    
-                    `;
-                } else {
-                    placeholder.style.display = none;
-                }    
+                `;
+            } else {
+                placeholder.style.display = none;
+            }    
         </script>
         <header>
             <h1>Калькулятор</h1>
